@@ -13,7 +13,7 @@
   - [Initial Bracket](./bracket_minimum.md)
   - [Fibonacci Search](./fibonacci_search.md)
   - [Golden Section Search](./golden_section_search.md)
-  - [Quadratic Fit Search]()
+  - [Quadratic Fit Search](./quadratic_fit_search.md)
   - [Shubert-Piyavskii Method]()
   - [Bisection Method]()
 - [Local Descent]()
