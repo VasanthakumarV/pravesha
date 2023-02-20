@@ -28,7 +28,7 @@ fn golden_section_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Inter
     let mut d = rho * b + (1. - rho) * a;
     let mut yd = f(d);
 
-    (1..n_queries - 1).for_each(|_| {
+    for _ in 1..n_queries - 1 {
         let c = rho * a + (1. - rho) * b;
         let yc = f(c);
 
@@ -37,7 +37,7 @@ fn golden_section_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Inter
         } else {
             (a, b) = (b, c);
         }
-    });
+    }
 
     if a < b {
         (a, b).into()

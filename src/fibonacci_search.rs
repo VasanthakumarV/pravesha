@@ -36,13 +36,12 @@ fn fibonacci_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Interval {
     let mut d = rho * b + (1. - rho) * a;
     let mut yd = f(d);
 
-    (1..n_queries - 1).for_each(|i| {
+    for i in 1..n_queries - 1 {
         let c = if i == n_queries - 1 {
             eps * a + (1. - eps) * d
         } else {
             rho * a + (1. - rho) * b
         };
-
         let yc = f(c);
 
         if yc < yd {
@@ -52,7 +51,7 @@ fn fibonacci_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Interval {
         }
 
         rho = 1. / fibonacci_ratio(n_queries as i32 - 1);
-    });
+    }
 
     if a < b {
         (a, b).into()
