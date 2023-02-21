@@ -14,7 +14,7 @@
   - [Fibonacci Search](./fibonacci_search.md)
   - [Golden Section Search](./golden_section_search.md)
   - [Quadratic Fit Search](./quadratic_fit_search.md)
-  - [Shubert-Piyavskii Method]()
+  - [Shubert-Piyavskii Method](./shubert_piyavskii_method.md)
   - [Bisection Method]()
 - [Local Descent]()
   - [Line Search]()
