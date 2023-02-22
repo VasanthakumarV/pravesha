@@ -1,3 +1,4 @@
+mod bisection_method;
 mod bracket_minimum;
 mod fibonacci_search;
 mod forward_accumulation;
