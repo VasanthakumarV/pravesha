@@ -15,7 +15,7 @@ impl From<(f32, f32, f32)> for Bracket {
     }
 }
 
-fn quadratic_fit_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Bracket {
+fn quadratic_fit_search(f: impl Fn(f32) -> f32, config: SearchConfig) -> Bracket {
     let SearchConfig {
         bracket:
             Bracket {

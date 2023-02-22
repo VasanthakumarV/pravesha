@@ -16,7 +16,7 @@ impl From<(f32, f32)> for Interval {
     }
 }
 
-fn bracket_minimum<F: Fn(f32) -> f32>(f: F, config: BracketConfig) -> Interval {
+fn bracket_minimum(f: impl Fn(f32) -> f32, config: BracketConfig) -> Interval {
     let BracketConfig {
         start,
         mut step_size,

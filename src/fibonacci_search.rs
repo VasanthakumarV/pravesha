@@ -22,7 +22,7 @@ fn fibonacci_ratio(n: i32) -> f32 {
     phi * (1. - s.powi(n + 1)) / (1. - s.powi(n))
 }
 
-fn fibonacci_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Interval {
+fn fibonacci_search(f: impl Fn(f32) -> f32, config: SearchConfig) -> Interval {
     let SearchConfig {
         bracket: Interval {
             start: mut a,

@@ -15,7 +15,7 @@ impl From<(f32, f32)> for Interval {
     }
 }
 
-fn golden_section_search<F: Fn(f32) -> f32>(f: F, config: SearchConfig) -> Interval {
+fn golden_section_search(f: impl Fn(f32) -> f32, config: SearchConfig) -> Interval {
     let SearchConfig {
         bracket: Interval {
             start: mut a,

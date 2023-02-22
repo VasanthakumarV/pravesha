@@ -29,10 +29,7 @@ impl Pt {
     }
 }
 
-fn shubert_piyavski_method<F>(f: F, config: MethodConfig) -> (Pt, Vec<Interval>)
-where
-    F: Fn(f32) -> f32,
-{
+fn shubert_piyavski_method(f: impl Fn(f32) -> f32, config: MethodConfig) -> (Pt, Vec<Interval>) {
     let MethodConfig {
         bracket: Interval { left, right },
         lipschitz_const: l,
