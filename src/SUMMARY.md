@@ -17,7 +17,7 @@
   - [Shubert-Piyavskii Method](./shubert_piyavskii_method.md)
   - [Bisection Method](./bisection_method.md)
 - [Local Descent]()
-  - [Line Search]()
+  - [Line Search](./line_search.md)
   - [Trust Region]()
 
 # First-Order
