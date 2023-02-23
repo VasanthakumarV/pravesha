@@ -16,6 +16,7 @@
   - [Quadratic Fit Search](./quadratic_fit_search.md)
   - [Shubert-Piyavskii Method](./shubert_piyavskii_method.md)
   - [Bisection Method](./bisection_method.md)
+  - [Brent-Dekker Method]()
 - [Local Descent]()
   - [Line Search](./line_search.md)
   - [Trust Region]()
