@@ -19,6 +19,7 @@
   - [Brent-Dekker Method]()
 - [Local Descent]()
   - [Line Search](./line_search.md)
+  - [Approximate Line Search](./approx_line_search.md)
   - [Trust Region]()
 
 # First-Order

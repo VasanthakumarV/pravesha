@@ -8,4 +8,5 @@ mod golden_section_search;
 mod quadratic_fit_search;
 mod shubert_piyavskii_method;
 
+mod approx_line_search;
 mod line_search;
