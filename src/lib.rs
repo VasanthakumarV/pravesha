@@ -10,3 +10,4 @@ mod shubert_piyavskii_method;
 
 mod approx_line_search;
 mod line_search;
+mod trust_region_descent;
