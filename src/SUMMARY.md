@@ -45,7 +45,7 @@
 - [Genetic Algorithms]()
 - [Particle Swarm]()
 
-# Constrainted Optimization
+# Constrained Optimization
 
 - [Simplex, Primal-Dual, ...]()
 - [Interior Point]()
