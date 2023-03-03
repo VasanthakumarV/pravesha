@@ -9,6 +9,7 @@ mod quadratic_fit_search;
 mod shubert_piyavskii_method;
 
 mod approx_line_search;
+mod conjugate_gradient_descent;
 mod gradient_descent;
 mod line_search;
 mod trust_region_descent;

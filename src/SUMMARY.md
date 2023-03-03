@@ -25,7 +25,7 @@
 # First-Order
 
 - [Gradient Descent](./gradient_descent.md)
-- [Conjugate Gradient Descent]()
+- [Conjugate Gradient Descent](./conjugate_gradient_descent.md)
 - [Momentum Based]()
 - [RMSProp, Adam, ...]()
 
