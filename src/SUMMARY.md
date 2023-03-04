@@ -28,6 +28,7 @@
 - [Conjugate Gradient Descent](./conjugate_gradient_descent.md)
 - [Momentum](./momentum.md)
 - [Nesterov Momentum](./nesterov_momentum.md)
+- [Adagrad](./adagrad.md)
 - [RMSProp, Adam, ...]()
 
 # Second-Order

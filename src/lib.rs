@@ -8,6 +8,7 @@ mod golden_section_search;
 mod quadratic_fit_search;
 mod shubert_piyavskii_method;
 
+mod adagrad;
 mod approx_line_search;
 mod conjugate_gradient_descent;
 mod gradient_descent;
