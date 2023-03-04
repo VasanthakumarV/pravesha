@@ -13,4 +13,5 @@ mod conjugate_gradient_descent;
 mod gradient_descent;
 mod line_search;
 mod momentum;
+mod nesterov_momentum;
 mod trust_region_descent;
