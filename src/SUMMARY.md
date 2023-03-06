@@ -4,11 +4,10 @@
 
 [References]()
 
-# Fundamentals
-
 - [Automatic Differentiation]()
   - [Forward Accumulation](./forward_accumulation.md)
   - [Backward Accumulation]()
+
 - [Bracketing]()
   - [Initial Bracket](./bracket_minimum.md)
   - [Fibonacci Search](./fibonacci_search.md)
@@ -17,43 +16,39 @@
   - [Shubert-Piyavskii Method](./shubert_piyavskii_method.md)
   - [Bisection Method](./bisection_method.md)
   - [Brent-Dekker Method]()
+
 - [Local Descent]()
   - [Line Search](./line_search.md)
   - [Approximate Line Search](./approx_line_search.md)
   - [Trust Region](./trust_region_descent.md)
 
-# First-Order
+- [First-Order]()
+  - [Gradient Descent](./gradient_descent.md)
+  - [Conjugate Gradient Descent](./conjugate_gradient_descent.md)
+  - [Momentum](./momentum.md)
+  - [Nesterov Momentum](./nesterov_momentum.md)
+  - [Adagrad](./adagrad.md)
+  - [RMSProp](./rms_prop.md)
+  - [Adadelta](./adadelta.md)
+  - [RMSProp, Adam, ...]()
 
-- [Gradient Descent](./gradient_descent.md)
-- [Conjugate Gradient Descent](./conjugate_gradient_descent.md)
-- [Momentum](./momentum.md)
-- [Nesterov Momentum](./nesterov_momentum.md)
-- [Adagrad](./adagrad.md)
-- [RMSProp](./rms_prop.md)
-- [RMSProp, Adam, ...]()
+- [Second-Order]()
+  - [Newton's Method]()
+  - [Secant Method]()
+  - [Quasi-Newton Method]()
 
-# Second-Order
+- [Stochastic]()
+  - [Noisy Descent]()
+  - [Simulated Annealing]()
 
-- [Newton's Method]()
-- [Secant Method]()
-- [Quasi-Newton Method]()
+- [Population]()
+  - [Genetic Algorithms]()
+  - [Particle Swarm]()
 
-# Stochastic
+- [Constrained Optimization]()
+  - [Simplex, Primal-Dual, ...]()
+  - [Interior Point]()
+  - [Branch and Bound]()
 
-- [Noisy Descent]()
-- [Simulated Annealing]()
-
-# Population
-
-- [Genetic Algorithms]()
-- [Particle Swarm]()
-
-# Constrained Optimization
-
-- [Simplex, Primal-Dual, ...]()
-- [Interior Point]()
-- [Branch and Bound]()
-
-# Probabilistic
-
-- [Gaussian Process]()
+- [Probabilistic]()
+  - [Gaussian Process]()
