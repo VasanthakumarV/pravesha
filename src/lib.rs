@@ -8,6 +8,7 @@ mod golden_section_search;
 mod quadratic_fit_search;
 mod shubert_piyavskii_method;
 
+mod adadelta;
 mod adagrad;
 mod approx_line_search;
 mod conjugate_gradient_descent;
@@ -20,6 +21,10 @@ mod trust_region_descent;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
     a.zip(b).map(|(a, b)| a / b)
+}
+
+fn mul<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
+    a.zip(b).map(|(a, b)| a * b)
 }
 
 fn add<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
