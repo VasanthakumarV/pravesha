@@ -29,6 +29,7 @@
 - [Momentum](./momentum.md)
 - [Nesterov Momentum](./nesterov_momentum.md)
 - [Adagrad](./adagrad.md)
+- [RMSProp](./rms_prop.md)
 - [RMSProp, Adam, ...]()
 
 # Second-Order

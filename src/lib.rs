@@ -15,4 +15,17 @@ mod gradient_descent;
 mod line_search;
 mod momentum;
 mod nesterov_momentum;
+mod rms_prop;
 mod trust_region_descent;
+
+fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
+    a.zip(b).map(|(a, b)| a / b)
+}
+
+fn add<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
+    a.zip(b).map(|(a, b)| a + b)
+}
+
+fn sub<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
+    a.zip(b).map(|(a, b)| a - b)
+}
