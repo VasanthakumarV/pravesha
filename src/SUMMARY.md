@@ -30,6 +30,7 @@
   - [Adagrad](./adagrad.md)
   - [RMSProp](./rms_prop.md)
   - [Adadelta](./adadelta.md)
+  - [Adam](./adam.md)
   - [RMSProp, Adam, ...]()
 
 - [Second-Order]()

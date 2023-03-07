@@ -10,6 +10,7 @@ mod shubert_piyavskii_method;
 
 mod adadelta;
 mod adagrad;
+mod adam;
 mod approx_line_search;
 mod conjugate_gradient_descent;
 mod gradient_descent;
