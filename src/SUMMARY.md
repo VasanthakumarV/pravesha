@@ -31,7 +31,8 @@
   - [RMSProp](./rms_prop.md)
   - [Adadelta](./adadelta.md)
   - [Adam](./adam.md)
-  - [RMSProp, Adam, ...]()
+  - [Hyper Gradient Descent](./hyper_gradient_descent.md)
+  - [Hyper Nesterov Momentum](./hyper_nesterov_momentum.md)
 
 - [Second-Order]()
   - [Newton's Method]()

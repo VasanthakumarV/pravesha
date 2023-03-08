@@ -14,6 +14,8 @@ mod adam;
 mod approx_line_search;
 mod conjugate_gradient_descent;
 mod gradient_descent;
+mod hyper_gradient_descent;
+mod hyper_nesterov_momentum;
 mod line_search;
 mod momentum;
 mod nesterov_momentum;
@@ -34,4 +36,8 @@ fn add<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
 
 fn sub<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
     a.zip(b).map(|(a, b)| a - b)
+}
+
+fn dot<const N: usize>(a: [f32; N], b: [f32; N]) -> f32 {
+    a.zip(b).map(|(a, b)| a * b).iter().sum()
 }
