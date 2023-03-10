@@ -35,7 +35,7 @@
   - [Hyper Nesterov Momentum](./hyper_nesterov_momentum.md)
 
 - [Second-Order]()
-  - [Newton's Method]()
+  - [Newton's Method](./newtons_method.md)
   - [Secant Method]()
   - [Quasi-Newton Method]()
 

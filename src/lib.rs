@@ -19,6 +19,7 @@ mod hyper_nesterov_momentum;
 mod line_search;
 mod momentum;
 mod nesterov_momentum;
+mod newtons_method;
 mod rms_prop;
 mod trust_region_descent;
 
