@@ -21,6 +21,7 @@ mod momentum;
 mod nesterov_momentum;
 mod newtons_method;
 mod rms_prop;
+mod secant_method;
 mod trust_region_descent;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {

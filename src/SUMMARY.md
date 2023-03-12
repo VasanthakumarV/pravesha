@@ -36,7 +36,7 @@
 
 - [Second-Order]()
   - [Newton's Method](./newtons_method.md)
-  - [Secant Method]()
+  - [Secant Method](./secant_method.md)
   - [Quasi-Newton Method]()
 
 - [Stochastic]()
