@@ -37,7 +37,9 @@
 - [Second-Order]()
   - [Newton's Method](./newtons_method.md)
   - [Secant Method](./secant_method.md)
-  - [Quasi-Newton Method]()
+  - [DFP Method](./dfp_method.md)
+  - [BFGS Method](./bfgs_method.md)
+  - [L-BFGS Method]()
 
 - [Stochastic]()
   - [Noisy Descent]()
