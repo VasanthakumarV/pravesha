@@ -41,6 +41,9 @@
   - [BFGS Method](./bfgs_method.md)
   - [L-BFGS Method]()
 
+- [Direct Methods]()
+  - [Cyclic Coordinate Descent](./cyclic_coord_descent.md)
+
 - [Stochastic]()
   - [Noisy Descent]()
   - [Simulated Annealing]()

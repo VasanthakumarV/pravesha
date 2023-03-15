@@ -27,6 +27,8 @@ mod dfp_method;
 mod newtons_method;
 mod secant_method;
 
+mod cyclic_coord_descent;
+
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
     a.zip(b).map(|(a, b)| a / b)
 }
@@ -49,10 +51,8 @@ fn dot<const N: usize>(a: [f32; N], b: [f32; N]) -> f32 {
 
 fn identity_mat<const N: usize>() -> [[f32; N]; N] {
     let matrix = [[0.; N]; N];
-
     for i in 0..N {
         matrix[i][i] = 1.0;
     }
-
     matrix
 }
