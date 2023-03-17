@@ -43,6 +43,7 @@
 
 - [Direct Methods]()
   - [Cyclic Coordinate Descent](./cyclic_coord_descent.md)
+  - [Powell's Method](./powells_method.md)
 
 - [Stochastic]()
   - [Noisy Descent]()

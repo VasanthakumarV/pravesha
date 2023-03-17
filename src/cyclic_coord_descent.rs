@@ -1,4 +1,4 @@
-use crate::sub;
+use crate::{basis, sub};
 
 fn cyclic_coord_descent<const N: usize, F: Fn([f32; N]) -> f32>(
     mut x: [f32; N],
@@ -33,10 +33,4 @@ fn cyclic_coord_descent_w_acc<const N: usize, F: Fn([f32; N]) -> f32>(
         delta = sub(x, x_init).map(|x| x.powi(2)).iter().sum();
     }
     x
-}
-
-fn basis<const N: usize>(i: usize) -> [f32; N] {
-    let basis = [0.0; N];
-    basis[i] = 1.;
-    basis
 }
