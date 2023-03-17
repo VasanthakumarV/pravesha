@@ -1,5 +1,5 @@
 # RMSProp
 
 ```rust
-{{#include rms_prop.rs}}
+{{ #include rms_prop.rs }}
 ```

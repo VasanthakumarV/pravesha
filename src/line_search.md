@@ -1,5 +1,5 @@
 # Line Search
 
 ```rust
-{{#include line_search.rs}}
+{{ #include line_search.rs }}
 ```

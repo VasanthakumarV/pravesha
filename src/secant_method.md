@@ -1,5 +1,5 @@
 # Secant Method
 
 ```rust
-{{#include secant_method.rs}}
+{{ #include secant_method.rs }}
 ```

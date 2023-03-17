@@ -1,5 +1,5 @@
 # Forward Accumulation
 
 ```rust
-{{#include forward_accumulation.rs}}
+{{ #include forward_accumulation.rs }}
 ```

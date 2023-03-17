@@ -1,5 +1,5 @@
 # DFP Method
 
 ```rust
-{{#include dfp_method.rs}}
+{{ #include dfp_method.rs }}
 ```

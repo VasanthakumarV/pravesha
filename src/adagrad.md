@@ -1,5 +1,5 @@
 # Adagrad
 
 ```rust
-{{#include adagrad.rs}}
+{{ #include adagrad.rs }}
 ```

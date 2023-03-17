@@ -1,5 +1,5 @@
 # Bracketing
 
 ```rust
-{{#include bracket_minimum.rs}}
+{{ #include bracket_minimum.rs }}
 ```

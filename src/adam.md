@@ -1,5 +1,5 @@
 # Adam
 
 ```rust
-{{#include adam.rs}}
+{{ #include adam.rs }}
 ```

@@ -1,5 +1,5 @@
 # Adadelta
 
 ```rust
-{{#include adadelta.rs}}
+{{ #include adadelta.rs }}
 ```

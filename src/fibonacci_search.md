@@ -1,5 +1,5 @@
 # Fibonacci Search
 
 ```rust
-{{#include fibonacci_search.rs}}
+{{ #include fibonacci_search.rs }}
 ```
