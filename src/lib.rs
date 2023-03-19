@@ -28,6 +28,7 @@ mod newtons_method;
 mod secant_method;
 
 mod cyclic_coord_descent;
+mod hooke_jeeves;
 mod powells_method;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {

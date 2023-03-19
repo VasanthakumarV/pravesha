@@ -44,6 +44,7 @@
 - [Direct Methods]()
   - [Cyclic Coordinate Descent](./cyclic_coord_descent.md)
   - [Powell's Method](./powells_method.md)
+  - [Hooke Jeeves Method](./hooke_jeeves.md)
 
 - [Stochastic]()
   - [Noisy Descent]()
