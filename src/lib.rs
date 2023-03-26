@@ -28,6 +28,7 @@ mod newtons_method;
 mod secant_method;
 
 mod cyclic_coord_descent;
+mod generalized_pattern_search;
 mod hooke_jeeves;
 mod powells_method;
 

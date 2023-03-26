@@ -45,6 +45,7 @@
   - [Cyclic Coordinate Descent](./cyclic_coord_descent.md)
   - [Powell's Method](./powells_method.md)
   - [Hooke Jeeves Method](./hooke_jeeves.md)
+  - [Generalized Pattern Search](./generalized_pattern_search.md)
 
 - [Stochastic]()
   - [Noisy Descent]()
