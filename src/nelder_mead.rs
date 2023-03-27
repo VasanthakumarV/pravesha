@@ -6,12 +6,12 @@ struct NelderMeadConfig {
     gamma: f32,
 }
 
-fn nelder_mead(
-    f: impl Fn([f32; 2]) -> f32,
-    mut s: [[f32; 2]; 3],
+fn nelder_mead<const N: usize>(
+    f: impl Fn([f32; N]) -> f32,
+    mut s: [[f32; N]; N + 1],
     epsilon: f32,
     config: NelderMeadConfig,
-) -> [f32; 2] {
+) -> [f32; N] {
     let NelderMeadConfig { alpha, beta, gamma } = config;
 
     let delta = f32::INFINITY;
@@ -20,32 +20,35 @@ fn nelder_mead(
         let p = argsort(y_arr);
         (s, y_arr) = (p.map(|i| s[i]), p.map(|i| y_arr[i]));
         let (xl, yl) = (s[0], y_arr[0]);
-        let (xh, yh) = (s[2], y_arr[2]);
-        let (xs, ys) = (s[1], y_arr[1]);
-        let xm = add(xl, xs).map(|x| x / 2.);
+        let (xh, yh) = (s[N], y_arr[N]);
+        let (xs, ys) = (s[N - 1], y_arr[N - 1]);
+        let xm = s[0..N]
+            .iter()
+            .fold([0.; N], |acc, x| acc.zip(*x).map(|(a, x)| a + x))
+            .map(|x| x / N as f32);
         let xr = add(xm, sub(xm, xh).map(|x| x * alpha));
         let yr = f(xr);
 
         if yr < yl {
             let xe = add(xm, sub(xr, xm).map(|x| x * beta));
             let ye = f(xe);
-            (s[2], y_arr[2]) = if ye < yr { (xe, ye) } else { (xr, yr) };
+            (s[N], y_arr[N]) = if ye < yr { (xe, ye) } else { (xr, yr) };
         } else if yr > ys {
             if yr <= yh {
-                (xh, yh, s[2], y_arr[2]) = (xr, yr, xr, yr);
+                (xh, yh, s[N], y_arr[N]) = (xr, yr, xr, yr);
             }
             let xc = add(xm, sub(xh, xm).map(|x| x * gamma));
             let yc = f(xc);
             if yc > yh {
-                for i in 1..3 {
+                for i in 1..=N {
                     s[i] = add(s[i], xl).map(|x| x / 2.);
                     y_arr[i] = f(s[i]);
                 }
             } else {
-                (s[2], y_arr[2]) = (xc, yc);
+                (s[N], y_arr[N]) = (xc, yc);
             }
         } else {
-            (s[2], y_arr[2]) = (xr, yr);
+            (s[N], y_arr[N]) = (xr, yr);
         }
 
         delta = std_dev(&y_arr);

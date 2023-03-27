@@ -1,4 +1,6 @@
 #![feature(array_zip)]
+#![allow(incomplete_features)]
+#![feature(generic_const_exprs)]
 
 mod bisection_method;
 mod bracket_minimum;
