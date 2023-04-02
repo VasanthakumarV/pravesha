@@ -47,6 +47,7 @@
   - [Hooke Jeeves Method](./hooke_jeeves.md)
   - [Generalized Pattern Search](./generalized_pattern_search.md)
   - [Nelder-Mead Simplex Method](./nelder_mead.md)
+  - [Divided Rectangles](./divided_rectangles.md)
 
 - [Stochastic]()
   - [Noisy Descent]()

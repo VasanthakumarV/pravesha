@@ -30,6 +30,7 @@ mod newtons_method;
 mod secant_method;
 
 mod cyclic_coord_descent;
+mod divided_rectangles;
 mod generalized_pattern_search;
 mod hooke_jeeves;
 mod nelder_mead;
