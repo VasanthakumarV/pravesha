@@ -50,7 +50,7 @@
   - [Divided Rectangles](./divided_rectangles.md)
 
 - [Stochastic]()
-  - [Noisy Descent]()
+  - [Noisy Gradient Descent](./noisy_descent.md)
   - [Simulated Annealing]()
 
 - [Population]()

@@ -1,4 +1,5 @@
 #![feature(array_zip)]
+#![feature(array_methods)]
 #![allow(incomplete_features)]
 #![feature(generic_const_exprs)]
 
@@ -35,6 +36,8 @@ mod generalized_pattern_search;
 mod hooke_jeeves;
 mod nelder_mead;
 mod powells_method;
+
+mod noisy_descent;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
     a.zip(b).map(|(a, b)| a / b)

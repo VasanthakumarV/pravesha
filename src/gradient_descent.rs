@@ -1,12 +1,17 @@
-struct GradientDescent<const N: usize, F: Fn([f32; N]) -> [f32; N]> {
+pub struct GradientDescent<const N: usize, F: Fn([f32; N]) -> [f32; N]> {
     x: [f32; N],
     grad_f: F,
     alpha: f32,
 }
 
 impl<const N: usize, F: Fn([f32; N]) -> [f32; N]> GradientDescent<N, F> {
-    fn new(x: [f32; N], grad_f: F, alpha: f32) -> Self {
+    pub fn new(x: [f32; N], grad_f: F, alpha: f32) -> Self {
         Self { x, grad_f, alpha }
+    }
+
+    // Helpter method for use in NoisyDescent
+    pub(crate) fn set_x(&mut self, x: [f32; N]) {
+        self.x = x;
     }
 }
 
