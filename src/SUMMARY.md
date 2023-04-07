@@ -51,6 +51,7 @@
 
 - [Stochastic]()
   - [Noisy Gradient Descent](./noisy_descent.md)
+  - [Mesh Adaptive Direct Search](./mesh_adaptive_search.md)
   - [Simulated Annealing]()
 
 - [Population]()

@@ -37,6 +37,7 @@ mod hooke_jeeves;
 mod nelder_mead;
 mod powells_method;
 
+mod mesh_adaptive_search;
 mod noisy_descent;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
