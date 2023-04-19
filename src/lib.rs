@@ -37,8 +37,10 @@ mod hooke_jeeves;
 mod nelder_mead;
 mod powells_method;
 
+mod adaptive_simulated_annealing;
 mod mesh_adaptive_search;
 mod noisy_descent;
+mod simulated_annealing;
 
 fn div<const N: usize>(a: [f32; N], b: [f32; N]) -> [f32; N] {
     a.zip(b).map(|(a, b)| a / b)
