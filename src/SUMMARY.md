@@ -55,6 +55,7 @@
   - [Simulated Annealing](./simulated_annealing.md)
   - [Adaptive Simulated Annealing](./adaptive_simulated_annealing.md)
   - [Cross-Entropy Method](./cross_entropy_method.md)
+  - [Natural Evolution Strategies]()
 
 - [Population]()
   - [Genetic Algorithms]()
