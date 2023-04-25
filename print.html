@@ -1,0 +1,2109 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Optimization Algorithms</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><div>Introduction</div></li><li class="chapter-item expanded affix "><div>References</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Automatic Differentiation</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="forward_accumulation.html"><strong aria-hidden="true">1.1.</strong> Forward Accumulation</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Backward Accumulation</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Bracketing</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="bracket_minimum.html"><strong aria-hidden="true">2.1.</strong> Initial Bracket</a></li><li class="chapter-item expanded "><a href="fibonacci_search.html"><strong aria-hidden="true">2.2.</strong> Fibonacci Search</a></li><li class="chapter-item expanded "><a href="golden_section_search.html"><strong aria-hidden="true">2.3.</strong> Golden Section Search</a></li><li class="chapter-item expanded "><a href="quadratic_fit_search.html"><strong aria-hidden="true">2.4.</strong> Quadratic Fit Search</a></li><li class="chapter-item expanded "><a href="shubert_piyavskii_method.html"><strong aria-hidden="true">2.5.</strong> Shubert-Piyavskii Method</a></li><li class="chapter-item expanded "><a href="bisection_method.html"><strong aria-hidden="true">2.6.</strong> Bisection Method</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.7.</strong> Brent-Dekker Method</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Local Descent</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="line_search.html"><strong aria-hidden="true">3.1.</strong> Line Search</a></li><li class="chapter-item expanded "><a href="approx_line_search.html"><strong aria-hidden="true">3.2.</strong> Approximate Line Search</a></li><li class="chapter-item expanded "><a href="trust_region_descent.html"><strong aria-hidden="true">3.3.</strong> Trust Region</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> First-Order</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="gradient_descent.html"><strong aria-hidden="true">4.1.</strong> Gradient Descent</a></li><li class="chapter-item expanded "><a href="conjugate_gradient_descent.html"><strong aria-hidden="true">4.2.</strong> Conjugate Gradient Descent</a></li><li class="chapter-item expanded "><a href="momentum.html"><strong aria-hidden="true">4.3.</strong> Momentum</a></li><li class="chapter-item expanded "><a href="nesterov_momentum.html"><strong aria-hidden="true">4.4.</strong> Nesterov Momentum</a></li><li class="chapter-item expanded "><a href="adagrad.html"><strong aria-hidden="true">4.5.</strong> Adagrad</a></li><li class="chapter-item expanded "><a href="rms_prop.html"><strong aria-hidden="true">4.6.</strong> RMSProp</a></li><li class="chapter-item expanded "><a href="adadelta.html"><strong aria-hidden="true">4.7.</strong> Adadelta</a></li><li class="chapter-item expanded "><a href="adam.html"><strong aria-hidden="true">4.8.</strong> Adam</a></li><li class="chapter-item expanded "><a href="hyper_gradient_descent.html"><strong aria-hidden="true">4.9.</strong> Hyper Gradient Descent</a></li><li class="chapter-item expanded "><a href="hyper_nesterov_momentum.html"><strong aria-hidden="true">4.10.</strong> Hyper Nesterov Momentum</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Second-Order</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="newtons_method.html"><strong aria-hidden="true">5.1.</strong> Newton's Method</a></li><li class="chapter-item expanded "><a href="secant_method.html"><strong aria-hidden="true">5.2.</strong> Secant Method</a></li><li class="chapter-item expanded "><a href="dfp_method.html"><strong aria-hidden="true">5.3.</strong> DFP Method</a></li><li class="chapter-item expanded "><a href="bfgs_method.html"><strong aria-hidden="true">5.4.</strong> BFGS Method</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> L-BFGS Method</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Direct Methods</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="cyclic_coord_descent.html"><strong aria-hidden="true">6.1.</strong> Cyclic Coordinate Descent</a></li><li class="chapter-item expanded "><a href="powells_method.html"><strong aria-hidden="true">6.2.</strong> Powell's Method</a></li><li class="chapter-item expanded "><a href="hooke_jeeves.html"><strong aria-hidden="true">6.3.</strong> Hooke Jeeves Method</a></li><li class="chapter-item expanded "><a href="generalized_pattern_search.html"><strong aria-hidden="true">6.4.</strong> Generalized Pattern Search</a></li><li class="chapter-item expanded "><a href="nelder_mead.html"><strong aria-hidden="true">6.5.</strong> Nelder-Mead Simplex Method</a></li><li class="chapter-item expanded "><a href="divided_rectangles.html"><strong aria-hidden="true">6.6.</strong> Divided Rectangles</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> Stochastic</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="noisy_descent.html"><strong aria-hidden="true">7.1.</strong> Noisy Gradient Descent</a></li><li class="chapter-item expanded "><a href="mesh_adaptive_search.html"><strong aria-hidden="true">7.2.</strong> Mesh Adaptive Direct Search</a></li><li class="chapter-item expanded "><a href="simulated_annealing.html"><strong aria-hidden="true">7.3.</strong> Simulated Annealing</a></li><li class="chapter-item expanded "><a href="adaptive_simulated_annealing.html"><strong aria-hidden="true">7.4.</strong> Adaptive Simulated Annealing</a></li><li class="chapter-item expanded "><a href="cross_entropy_method.html"><strong aria-hidden="true">7.5.</strong> Cross-Entropy Method</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.6.</strong> Natural Evolution Strategies</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Population</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Genetic Algorithms</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Particle Swarm</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Constrained Optimization</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> Simplex, Primal-Dual, ...</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> Interior Point</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.3.</strong> Branch and Bound</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> Probabilistic</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Gaussian Process</div></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Optimization Algorithms</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="forward-accumulation"><a class="header" href="#forward-accumulation">Forward Accumulation</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::ops::{Add, Mul};
+
+#[derive(Clone, Copy, Debug)]
+struct Dual {
+    value: f64,
+    derivative: f64,
+}
+
+impl Dual {
+    fn new(value: f64, derivative: f64) -&gt; Self {
+        Dual { value, derivative }
+    }
+}
+
+impl Add for Dual {
+    type Output = Self;
+
+    fn add(self, other: Self) -&gt; Self {
+        Self {
+            value: self.value + other.value,
+            derivative: self.derivative + other.derivative,
+        }
+    }
+}
+
+impl Mul for Dual {
+    type Output = Self;
+
+    fn mul(self, other: Self) -&gt; Self {
+        Self {
+            value: self.value * other.value,
+            derivative: self.value * other.derivative + other.value * self.derivative,
+        }
+    }
+}
+
+fn ln(dual: Dual) -&gt; Dual {
+    Dual {
+        value: dual.value.ln(),
+        derivative: dual.derivative / dual.value,
+    }
+}
+
+fn max(dual: Dual, value: f64) -&gt; Dual {
+    let derivative = if dual.value &gt; value {
+        dual.derivative
+    } else if dual.value &lt; value {
+        0.
+    } else {
+        f64::NAN
+    };
+
+    Dual {
+        value: dual.value.max(value),
+        derivative,
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bracketing"><a class="header" href="#bracketing">Bracketing</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct BracketConfig {
+    start: f32,
+    step_size: f32,
+    expansion: f32,
+}
+
+#[derive(Debug)]
+struct Interval {
+    start: f32,
+    end: f32,
+}
+
+impl From&lt;(f32, f32)&gt; for Interval {
+    fn from((start, end): (f32, f32)) -&gt; Self {
+        Interval { start, end }
+    }
+}
+
+fn bracket_minimum(f: impl Fn(f32) -&gt; f32, config: BracketConfig) -&gt; Interval {
+    let BracketConfig {
+        start,
+        mut step_size,
+        expansion,
+    } = config;
+
+    let (mut a, ya) = (start, f(start));
+    let (mut b, mut yb) = (a + step_size, f(a + step_size));
+
+    if yb &gt; ya {
+        (a, b, yb) = (b, a, ya);
+        step_size = -step_size;
+    }
+
+    loop {
+        let (c, yc) = (b + step_size, f(b + step_size));
+        if yc &gt; yb {
+            return if a &lt; c { (a, c).into() } else { (c, a).into() };
+        }
+        (a, b, yb) = (b, c, yc);
+        step_size *= expansion;
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fibonacci-search"><a class="header" href="#fibonacci-search">Fibonacci Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct SearchConfig {
+    bracket: Interval,
+    n_queries: usize,
+    eps: f32,
+}
+
+#[derive(Debug)]
+struct Interval {
+    start: f32,
+    end: f32,
+}
+
+impl From&lt;(f32, f32)&gt; for Interval {
+    fn from((start, end): (f32, f32)) -&gt; Self {
+        Self { start, end }
+    }
+}
+
+fn fibonacci_ratio(n: i32) -&gt; f32 {
+    let phi = (1. + 5f32.sqrt()) / 2.;
+    let s = (1. - 5f32.sqrt()) / (1. + 5f32.sqrt());
+    phi * (1. - s.powi(n + 1)) / (1. - s.powi(n))
+}
+
+fn fibonacci_search(f: impl Fn(f32) -&gt; f32, config: SearchConfig) -&gt; Interval {
+    let SearchConfig {
+        bracket: Interval {
+            start: mut a,
+            end: mut b,
+        },
+        n_queries,
+        eps,
+    } = config;
+
+    let mut rho = 1. / fibonacci_ratio(n_queries as i32);
+    let mut d = rho * b + (1. - rho) * a;
+    let mut yd = f(d);
+
+    for i in 1..n_queries - 1 {
+        let c = if i == n_queries - 1 {
+            eps * a + (1. - eps) * d
+        } else {
+            rho * a + (1. - rho) * b
+        };
+        let yc = f(c);
+
+        if yc &lt; yd {
+            (b, d, yd) = (d, c, yc);
+        } else {
+            (a, b) = (b, c);
+        }
+
+        rho = 1. / fibonacci_ratio(n_queries as i32 - 1);
+    }
+
+    if a &lt; b {
+        (a, b).into()
+    } else {
+        (b, a).into()
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="golden-section-search"><a class="header" href="#golden-section-search">Golden Section Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct SearchConfig {
+    bracket: Interval,
+    n_queries: usize,
+}
+
+#[derive(Debug)]
+struct Interval {
+    start: f32,
+    end: f32,
+}
+
+impl From&lt;(f32, f32)&gt; for Interval {
+    fn from((start, end): (f32, f32)) -&gt; Self {
+        Interval { start, end }
+    }
+}
+
+fn golden_section_search(f: impl Fn(f32) -&gt; f32, config: SearchConfig) -&gt; Interval {
+    let SearchConfig {
+        bracket: Interval {
+            start: mut a,
+            end: mut b,
+        },
+        n_queries,
+    } = config;
+
+    let rho = 1.618 - 1.;
+    let mut d = rho * b + (1. - rho) * a;
+    let mut yd = f(d);
+
+    for _ in 1..n_queries - 1 {
+        let c = rho * a + (1. - rho) * b;
+        let yc = f(c);
+
+        if yc &lt; yd {
+            (b, d, yd) = (d, c, yc);
+        } else {
+            (a, b) = (b, c);
+        }
+    }
+
+    if a &lt; b {
+        (a, b).into()
+    } else {
+        (b, a).into()
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quadratic-fit-search"><a class="header" href="#quadratic-fit-search">Quadratic Fit Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct SearchConfig {
+    bracket: Bracket,
+    n_queries: usize,
+}
+
+struct Bracket {
+    start: f32,
+    middle: f32,
+    end: f32,
+}
+
+impl From&lt;(f32, f32, f32)&gt; for Bracket {
+    fn from((start, middle, end): (f32, f32, f32)) -&gt; Self {
+        Self { start, middle, end }
+    }
+}
+
+fn quadratic_fit_search(f: impl Fn(f32) -&gt; f32, config: SearchConfig) -&gt; Bracket {
+    let SearchConfig {
+        bracket:
+            Bracket {
+                start: mut a,
+                middle: mut b,
+                end: mut c,
+            },
+        n_queries,
+    } = config;
+
+    let (mut ya, mut yb, mut yc) = (f(a), f(b), f(c));
+
+    for _ in 1..n_queries - 3 {
+        let x = 0.5
+            * (ya * (b.powi(2) - c.powi(2))
+                + yb * (c.powi(2) - a.powi(2))
+                + yc * (a.powi(2) - b.powi(2)))
+            / (ya * (b - c) + yb * (c - a) + yc * (a - b));
+        let yx = f(x);
+
+        if x &gt; b {
+            if yx &gt; yb {
+                (c, yc) = (x, yx);
+            } else {
+                (a, ya, b, yb) = (b, yb, x, yx);
+            }
+        } else if x &lt; b {
+            if yx &gt; yb {
+                (a, ya) = (x, yx);
+            } else {
+                (c, yc, b, yb) = (b, yb, x, yx);
+            }
+        }
+    }
+
+    (a, b, c).into()
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shubert-piyavskii-method"><a class="header" href="#shubert-piyavskii-method">Shubert-Piyavskii Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct MethodConfig {
+    bracket: Interval,
+    lipschitz_const: f32,
+    epsilon: f32,
+    delta: f32,
+}
+
+#[derive(Clone, Copy)]
+struct Interval {
+    left: f32,
+    right: f32,
+}
+
+impl From&lt;(f32, f32)&gt; for Interval {
+    fn from((left, right): (f32, f32)) -&gt; Self {
+        Self { left, right }
+    }
+}
+
+#[derive(Clone, Copy)]
+struct Pt {
+    x: f32,
+    y: f32,
+}
+
+impl Pt {
+    fn new(x: f32, y: f32) -&gt; Self {
+        Self { x, y }
+    }
+}
+
+fn shubert_piyavski_method(f: impl Fn(f32) -&gt; f32, config: MethodConfig) -&gt; (Pt, Vec&lt;Interval&gt;) {
+    let MethodConfig {
+        bracket: Interval { left, right },
+        lipschitz_const: l,
+        epsilon,
+        delta,
+    } = config;
+
+    let middle = (left + right) / 2.;
+    let (a, m, b) = (
+        Pt::new(left, f(left)),
+        Pt::new(middle, f(middle)),
+        Pt::new(right, f(right)),
+    );
+    let mut pts = vec![
+        a,
+        get_intersection(a, m, l),
+        m,
+        get_intersection(m, b, l),
+        b,
+    ];
+
+    let mut diff = f32::INFINITY;
+    while diff &gt; epsilon {
+        let i = argmin(pts.iter().map(|p| p.y));
+        let p = Pt::new(pts[i].x, f(pts[i].x));
+        let p_prev = get_intersection(pts[i - 1], p, l);
+        let p_next = get_intersection(p, pts[i + 1], l);
+
+        diff = p.y - pts[i].y;
+
+        pts.remove(i);
+        pts.insert(i, p_next);
+        pts.insert(i, p);
+        pts.insert(i, p_prev);
+    }
+
+    let mut intervals: Vec&lt;Interval&gt; = vec![];
+    let i = 2 * argmin(pts.iter().step_by(2).map(|p| p.y)) - 1;
+    pts.iter().skip(1).step_by(2).for_each(|p| {
+        if p.y &lt; pts[i].y {
+            let dy = pts[i].y - p.y;
+            let x_lo = left.max(p.x - dy / l);
+            let x_hi = right.min(p.x + dy / l);
+            if (!intervals.is_empty())
+                &amp;&amp; (intervals.last().map(|i| i.right + delta).unwrap() &gt;= x_lo)
+            {
+                if let Some(i) = intervals.last_mut() {
+                    *i = (i.left, x_hi).into();
+                }
+            } else {
+                intervals.push((x_lo, x_hi).into());
+            }
+        }
+    });
+
+    (pts[i], intervals)
+}
+
+fn get_intersection(left: Pt, right: Pt, l: f32) -&gt; Pt {
+    let t = ((left.y - right.y) - l * (left.x - right.x)) / (2. * l);
+    Pt::new(left.x + t, left.y - t * l)
+}
+
+fn argmin(vals: impl Iterator&lt;Item = f32&gt;) -&gt; usize {
+    vals.enumerate()
+        .fold((0, 0.), |(idx_max, val_max), (idx, v)| {
+            if val_max &gt; v {
+                (idx_max, val_max)
+            } else {
+                (idx, v)
+            }
+        })
+        .0
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bisection-method"><a class="header" href="#bisection-method">Bisection Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct MethodConfig {
+    interval: Interval,
+    epsilon: f32,
+}
+
+struct Interval {
+    left: f32,
+    right: f32,
+}
+
+impl From&lt;(f32, f32)&gt; for Interval {
+    fn from((left, right): (f32, f32)) -&gt; Self {
+        Self { left, right }
+    }
+}
+
+fn bisection_method(f_prime: impl Fn(f32) -&gt; f32, config: MethodConfig) -&gt; Interval {
+    let MethodConfig {
+        interval: Interval {
+            left: mut a,
+            right: mut b,
+        },
+        epsilon,
+    } = config;
+
+    if a &gt; b {
+        (a, b) = (b, a);
+    }
+
+    let (ya, yb) = (f_prime(a), f_prime(b));
+    if ya == 0. {
+        b = a;
+    }
+    if yb == 0. {
+        a = b;
+    }
+
+    while b - a &gt; epsilon {
+        let x = (a + b) / 2.;
+        let y = f_prime(x);
+        if y == 0. {
+            (a, b) = (x, x);
+        } else if y.signum() == ya.signum() {
+            a = x;
+        } else {
+            b = x;
+        }
+    }
+
+    (a, b).into()
+}
+
+fn bracket_sign_change(
+    f_prime: impl Fn(f32) -&gt; f32,
+    interval: Interval,
+    growth_fctr: f32,
+) -&gt; Interval {
+    let Interval {
+        left: mut a,
+        right: mut b,
+    } = interval;
+
+    if a &gt; b {
+        (a, b) = (b, a);
+    }
+
+    let (center, mut half_width) = ((b + a) / 2., (b - a) / 2.);
+    while f_prime(a) * f_prime(b) &gt; 0. {
+        half_width *= growth_fctr;
+        a = center - half_width;
+        b = center + half_width;
+    }
+
+    (a, b).into()
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="line-search"><a class="header" href="#line-search">Line Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn line_search&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    x: [f32; N],
+    dir: [f32; N],
+) -&gt; [f32; N] {
+    let objective = |alpha: f32| {
+        let inp = x.zip(dir).map(|(x, d)| x + alpha * d);
+        f(inp)
+    };
+
+    let (a, b) = todo!(&quot;bracket_minimum(objective)&quot;);
+    let alpha = todo!(&quot;minimize(objective, a, b)&quot;);
+
+    x.zip(dir).map(|(x, d)| x + alpha * d)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="approximate-line-search"><a class="header" href="#approximate-line-search">Approximate Line Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Config {
+    alpha: f32,
+    beta: f32,
+    shrink_fctr: f32,
+}
+
+fn bracktracking_line_search&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    grad_f: impl Fn([f32; N]) -&gt; [f32; N],
+    x: [f32; N],
+    dir: [f32; N],
+    config: Config,
+) -&gt; f32 {
+    let Config {
+        mut alpha,
+        beta,
+        shrink_fctr: p,
+    } = config;
+
+    let (y, g) = (f(x), grad_f(x));
+    loop {
+        if f(sum(x, dir.map(|d| alpha * d))) &lt;= y + (beta * alpha * dot(g, dir)) {
+            break;
+        }
+        alpha *= p;
+    }
+
+    alpha
+}
+
+struct StrongConfig {
+    alpha: f32,
+    beta: f32,
+    sigma: f32,
+}
+
+fn strong_bracktracking&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    grad_f: impl Fn([f32; N]) -&gt; [f32; N],
+    x: [f32; N],
+    d: [f32; N],
+    config: StrongConfig,
+) -&gt; f32 {
+    let StrongConfig {
+        mut alpha,
+        beta,
+        sigma,
+    } = config;
+
+    let (y0, g0, mut y_prev, mut alpha_prev) = (f(x), dot(grad_f(x), d), None, 0.);
+
+    let (mut alpha_lo, mut alpha_hi) = loop {
+        let y = f(sum(x, d.map(|d| alpha * d)));
+        if y &gt; y0 + beta * alpha * g0 || (y_prev.is_some() &amp;&amp; y &gt;= y_prev.unwrap()) {
+            break (alpha_prev, alpha);
+        }
+        let g = dot(grad_f(sum(x, d.map(|d| alpha * d))), d);
+        if g.abs() &lt;= -sigma * g0 {
+            return alpha;
+        } else if g &gt;= 0. {
+            break (alpha, alpha_prev);
+        }
+        (y_prev, alpha_prev, alpha) = (Some(y), alpha, 2. * alpha);
+    };
+
+    let y_lo = f(sum(x, d.map(|d| alpha_lo * d)));
+    loop {
+        let alpha = (alpha_lo + alpha_hi) / 2.;
+        let y = f(sum(x, d.map(|d| alpha * d)));
+        if y &gt; y0 + beta * alpha * g0 || y &gt;= y_lo {
+            alpha_hi = alpha;
+        } else {
+            let g = dot(grad_f(sum(x, d.map(|d| alpha * d))), d);
+            if g.abs() &lt;= -sigma * g0 {
+                return alpha;
+            } else if g * (alpha_hi - alpha_lo) &gt;= 0. {
+                alpha_hi = alpha_lo;
+            }
+            alpha_lo = alpha;
+        }
+    }
+}
+
+fn dot&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; f32 {
+    a.zip(b).map(|(a, b)| a * b).iter().sum()
+}
+
+fn sum&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a + b)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trust-region-descent"><a class="header" href="#trust-region-descent">Trust Region Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Config {
+    max_iter: usize,
+    eta_1: f32,
+    eta_2: f32,
+    y1: f32,
+    y2: f32,
+    delta: f32,
+}
+
+fn trust_region_descent&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    grad_f: impl Fn([f32; N]) -&gt; [f32; N],
+    hess: impl Fn([f32; N]) -&gt; [[f32; N]; N],
+    x: [f32; N],
+    config: Config,
+) -&gt; [f32; N] {
+    let Config {
+        max_iter,
+        eta_1,
+        eta_2,
+        y1,
+        y2,
+        delta,
+    } = config;
+
+    let (mut x, mut y) = (x, f(x));
+    for k in 1..max_iter {
+        let (x_prime, y_prime) = solve_subproblem(grad_f, hess, x, delta);
+        let r = (y - f(x_prime)) / (y - y_prime);
+        if r &lt; eta_1 {
+            delta *= y1;
+        } else {
+            (x, y) = (x_prime, y_prime);
+            if r &gt; eta_2 {
+                delta *= y2;
+            }
+        }
+    }
+
+    x
+}
+
+fn solve_subproblem&lt;const N: usize&gt;(
+    grad_f: impl Fn([f32; N]) -&gt; [f32; N],
+    hess: impl Fn([f32; N]) -&gt; [[f32; N]; N],
+    x: [f32; N],
+    delta: f32,
+) -&gt; ([f32; N], f32) {
+    let (x_prime, y_prime) = todo!(&quot;Solve second order Taylor series expansion&quot;);
+    (x_prime, y_prime)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gradient-descent"><a class="header" href="#gradient-descent">Gradient Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct GradientDescent&lt;const N: usize, F: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: F,
+    alpha: f32,
+}
+
+impl&lt;const N: usize, F: Fn([f32; N]) -&gt; [f32; N]&gt; GradientDescent&lt;N, F&gt; {
+    pub fn new(x: [f32; N], grad_f: F, alpha: f32) -&gt; Self {
+        Self { x, grad_f, alpha }
+    }
+
+    // Helpter method for use in NoisyDescent
+    pub(crate) fn set_x(&amp;mut self, x: [f32; N]) {
+        self.x = x;
+    }
+}
+
+impl&lt;const N: usize, F: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for GradientDescent&lt;N, F&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.x = self.x.zip(g).map(|(x, g)| x - self.alpha * g);
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="conjugate-gradient-descent"><a class="header" href="#conjugate-gradient-descent">Conjugate Gradient Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct ConjugateGradDescent&lt;
+    const N: usize,
+    Func: Fn([f32; N]) -&gt; f32,
+    Grad: Fn([f32; N]) -&gt; [f32; N],
+&gt; {
+    x: [f32; N],
+    f: Func,
+    grad_f: Grad,
+    d: [f32; N],
+    g: [f32; N],
+}
+
+impl&lt;const N: usize, Func: Fn([f32; N]) -&gt; f32, Grad: Fn([f32; N]) -&gt; [f32; N]&gt;
+    ConjugateGradDescent&lt;N, Func, Grad&gt;
+{
+    fn new(x: [f32; N], f: Func, grad_f: Grad) -&gt; Self {
+        let g = grad_f(x);
+        Self {
+            x,
+            f,
+            grad_f,
+            g,
+            d: g.map(|g| -g),
+        }
+    }
+}
+
+impl&lt;const N: usize, Func: Fn([f32; N]) -&gt; f32, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator
+    for ConjugateGradDescent&lt;N, Func, Grad&gt;
+{
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g_prime = (self.grad_f)(self.x);
+        let beta = (dot(g_prime, sub(g_prime, self.g)) / dot(self.g, self.g)).max(0.);
+        let d_prime = sub(self.d.map(|d| beta * d), g_prime);
+        self.x = todo!(&quot;line_search(self.f, self.x, d_prime)&quot;);
+        (self.d, self.g) = (d_prime, g_prime);
+        Some(self.x)
+    }
+}
+
+fn dot&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; f32 {
+    a.zip(b).map(|(a, b)| a * b).iter().sum()
+}
+
+fn sub&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a - b)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="momentum"><a class="header" href="#momentum">Momentum</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Momentum&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    beta: f32,
+    v: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Momentum&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, beta: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            beta,
+            v: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for Momentum&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.v = add(self.v.map(|v| self.beta * v), g.map(|g| -self.alpha * g));
+        self.x = add(self.x, self.v);
+        Some(self.x)
+    }
+}
+
+fn add&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a + b)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nesterov-momentum"><a class="header" href="#nesterov-momentum">Nesterov Momentum</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct NesterovMomentum&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    beta: f32,
+    v: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; NesterovMomentum&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, beta: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            beta,
+            v: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for NesterovMomentum&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let next_pt = add(self.x, self.v.map(|v| self.beta * v));
+        self.v = add(
+            self.v.map(|v| self.beta * v),
+            next_pt.map(|n| self.alpha * n),
+        );
+        self.x = add(self.x, self.v);
+        Some(self.x)
+    }
+}
+
+fn add&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a + b)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adagrad"><a class="header" href="#adagrad">Adagrad</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Adagrad&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    epsilon: f32,
+    s: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Adagrad&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, epsilon: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            epsilon,
+            s: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for Adagrad&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.s = add(self.s, g.map(|g| g.powi(2)));
+        let adap_grad = div(
+            g.map(|g| self.alpha * g),
+            self.s.map(|s| s.sqrt() + self.epsilon),
+        );
+        self.x = add(self.x, adap_grad.map(|a| -a));
+        Some(self.x)
+    }
+}
+
+fn div&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a / b)
+}
+
+fn add&lt;const N: usize&gt;(a: [f32; N], b: [f32; N]) -&gt; [f32; N] {
+    a.zip(b).map(|(a, b)| a + b)
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rmsprop"><a class="header" href="#rmsprop">RMSProp</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, div, sub};
+
+struct RmsProp&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    s: [f32; N],
+    alpha: f32,
+    gamma: f32,
+    epsilon: f32,
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; RmsProp&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, gamma: f32, epsilon: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            s: [0.; N],
+            alpha,
+            gamma,
+            epsilon,
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for RmsProp&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.s = add(
+            self.s.map(|s| self.gamma * s),
+            g.map(|g| (1. - self.gamma) * g.powi(2)),
+        );
+        let delta = div(
+            g.map(|g| self.alpha * g),
+            self.s.map(|s| self.epsilon + s.sqrt()),
+        );
+        self.x = sub(self.x, delta);
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adadelta"><a class="header" href="#adadelta">Adadelta</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, div, mul, sub};
+
+struct Adadelta&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    s: [f32; N],
+    u: [f32; N],
+    gamma_s: f32,
+    gamma_u: f32,
+    epsilon: f32,
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Adadelta&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, gamma_s: f32, gamma_u: f32, epsilon: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            s: [0.; N],
+            u: [0.; N],
+            gamma_s,
+            gamma_u,
+            epsilon,
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for Adadelta&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.s = add(
+            self.s.map(|s| self.gamma_s * s),
+            g.map(|g| (1. - self.gamma_s) * g.powi(2)),
+        );
+        let delta = mul(
+            div(
+                self.u.map(|u| self.epsilon + u.sqrt()),
+                self.s.map(|s| self.epsilon + s.sqrt()),
+            ),
+            g,
+        );
+        self.u = add(
+            self.u.map(|u| self.gamma_u * u),
+            delta.map(|d| (1. - self.gamma_u) * d.powi(2)),
+        );
+        self.x = sub(self.x, delta);
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adam"><a class="header" href="#adam">Adam</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, div, sub};
+
+struct Adam&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    gamma_v: f32,
+    gamma_s: f32,
+    epsilon: f32,
+    k: usize,
+    v: [f32; N],
+    s: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Adam&lt;N, Grad&gt; {
+    fn new(
+        x: [f32; N],
+        grad_f: Grad,
+        alpha: f32,
+        gamma_v: f32,
+        gamma_s: f32,
+        epsilon: f32,
+    ) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            gamma_v,
+            gamma_s,
+            epsilon,
+            k: 0,
+            v: [0.; N],
+            s: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for Adam&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.v = add(
+            self.v.map(|v| v * self.gamma_v),
+            g.map(|g| g * (1. - self.gamma_v)),
+        );
+        self.s = add(
+            self.s.map(|s| s * self.gamma_s),
+            g.map(|g| g.powi(2) * (1. - self.gamma_s)),
+        );
+        self.k += 1;
+        let v_hat = self.v.map(|v| v / (1. - self.gamma_v.powi(self.k as i32)));
+        let s_hat = self.s.map(|s| s / (1. - self.gamma_s.powi(self.k as i32)));
+        self.x = sub(
+            self.x,
+            div(
+                v_hat.map(|v| v * self.alpha),
+                s_hat.map(|s| s.sqrt() + self.epsilon),
+            ),
+        );
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hyper-gradient-descent"><a class="header" href="#hyper-gradient-descent">Hyper Gradient Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{dot, sub};
+
+struct HyperGradientDescent&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    mu: f32,
+    g_prev: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; HyperGradientDescent&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, mu: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            mu,
+            g_prev: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for HyperGradientDescent&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.alpha += self.mu * dot(g, self.g_prev);
+        self.g_prev = g;
+        self.x = sub(self.x, g.map(|g| g * self.alpha));
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hyper-nesterov-momentum"><a class="header" href="#hyper-nesterov-momentum">Hyper Nesterov Momentum</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, dot, sub};
+
+struct HyperNesterovMomentum&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    x: [f32; N],
+    grad_f: Grad,
+    alpha: f32,
+    mu: f32,
+    beta: f32,
+    v: [f32; N],
+    g_prev: [f32; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; HyperNesterovMomentum&lt;N, Grad&gt; {
+    fn new(x: [f32; N], grad_f: Grad, alpha: f32, mu: f32, beta: f32) -&gt; Self {
+        Self {
+            x,
+            grad_f,
+            alpha,
+            mu,
+            beta,
+            v: [0.; N],
+            g_prev: [0.; N],
+        }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for HyperNesterovMomentum&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        self.alpha -= self.mu
+            * dot(
+                g,
+                sub(self.g_prev.map(|g| -g), self.v.map(|v| self.beta * v)),
+            );
+        self.v = add(self.v.map(|v| self.beta * v), g);
+        self.g_prev = g;
+        self.x = sub(
+            self.x,
+            add(g, self.v.map(|v| self.beta * v)).map(|d| d * self.alpha),
+        );
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="newtons-method"><a class="header" href="#newtons-method">Newton's Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::sub;
+
+fn newtons_method&lt;const N: usize&gt;(
+    grad_f: impl Fn([f32; N]) -&gt; [f32; N],
+    hess: impl Fn([f32; N]) -&gt; [[f32; N]; N],
+    x: [f32; N],
+    epsilon: f32,
+    k_max: usize,
+) -&gt; [f32; N] {
+    let (k, mut delta) = (1, [f32::INFINITY; N]);
+
+    while norm(delta) &gt; epsilon &amp;&amp; k &lt;= k_max {
+        delta = solve(hess(x), grad_f(x));
+        x = sub(x, delta);
+        k += 1;
+    }
+
+    x
+}
+
+fn solve&lt;const N: usize&gt;(x_1: [[f32; N]; N], x_2: [f32; N]) -&gt; [f32; N] {
+    todo!(&quot;lu factorization&quot;)
+}
+
+fn norm&lt;const N: usize&gt;(delta: [f32; N]) -&gt; f32 {
+    delta.map(|d| d.powi(2)).iter().sum::&lt;f32&gt;().sqrt()
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="secant-method"><a class="header" href="#secant-method">Secant Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn secant_method(grad_f: impl Fn(f32) -&gt; f32, x0: f32, x1: f32, epsilon: f32) -&gt; f32 {
+    let g0 = grad_f(x0);
+    let mut delta = f32::INFINITY;
+    while delta.abs() &gt; epsilon {
+        let g1 = grad_f(x1);
+        delta = (x1 - x0) / (g1 - g0) * g1;
+        (x0, x1, g0) = (x1, x1 - delta, g1);
+    }
+    x1
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dfp-method"><a class="header" href="#dfp-method">DFP Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{identity_mat, sub};
+
+struct DfpMethod&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    grad_f: Grad,
+    x: [f32; N],
+    q: [[f32; N]; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; DfpMethod&lt;N, Grad&gt; {
+    fn new(grad_f: Grad, x: [f32; N]) -&gt; Self {
+        let q = identity_mat::&lt;N&gt;();
+        Self { grad_f, x, q }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for DfpMethod&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        let x_prime = todo!(&quot;line_search(f, x, -Q*g)&quot;);
+        let g_prime = self.grad_f(x_prime);
+        let delta = sub(x_prime, self.x);
+        let gamma = sub(g_prime, g);
+        self.q = todo!(&quot;Q - Q*gam*gam'*Q/(gam'*Q*gam) + del*del'/(del'*gam)&quot;);
+        self.x = x_prime;
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bfgs-method"><a class="header" href="#bfgs-method">BFGS Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{identity_mat, sub};
+
+struct BfgsMethod&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; {
+    grad_f: Grad,
+    x: [f32; N],
+    q: [[f32; N]; N],
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; BfgsMethod&lt;N, Grad&gt; {
+    fn new(grad_f: Grad, x: [f32; N]) -&gt; Self {
+        let q = identity_mat::&lt;N&gt;();
+        Self { grad_f, x, q }
+    }
+}
+
+impl&lt;const N: usize, Grad: Fn([f32; N]) -&gt; [f32; N]&gt; Iterator for BfgsMethod&lt;N, Grad&gt; {
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let g = (self.grad_f)(self.x);
+        let x_prime = todo!(&quot;line_search(f, x, -Q*g)&quot;);
+        let g_prime = self.grad_f(x_prime);
+        let delta = sub(x_prime, self.x);
+        let gamma = sub(g_prime, g);
+        self.q = todo!(&quot;Q - (δ*γ'*Q + Q*γ*δ')/(δ'*γ) + (1 + (γ'*Q*γ)/(δ'*γ))[1]*(δ*δ')/(δ'*γ)&quot;);
+        self.x = x_prime;
+        Some(self.x)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cyclic-coordinate-descent"><a class="header" href="#cyclic-coordinate-descent">Cyclic Coordinate Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{basis, sub};
+
+fn cyclic_coord_descent&lt;const N: usize, F: Fn([f32; N]) -&gt; f32&gt;(
+    mut x: [f32; N],
+    f: F,
+    epsilon: f32,
+) {
+    let mut delta = f32::INFINITY;
+    while delta.abs() &gt; epsilon {
+        let x_init = x;
+        for i in 1..N {
+            let d = basis::&lt;N&gt;(i);
+            x = todo!(&quot;line_search(f, x, d)&quot;);
+        }
+        delta = sub(x, x_init).map(|x| x.powi(2)).iter().sum();
+    }
+    x
+}
+
+fn cyclic_coord_descent_w_acc&lt;const N: usize, F: Fn([f32; N]) -&gt; f32&gt;(
+    mut x: [f32; N],
+    f: F,
+    epsilon: f32,
+) {
+    let mut delta = f32::INFINITY;
+    while delta.abs() &gt; epsilon {
+        let x_init = x;
+        for i in 1..N {
+            let d = basis::&lt;N&gt;(i);
+            x = todo!(&quot;line_search(f, x, d)&quot;);
+        }
+        x = todo!(&quot;line_search(f, x, x - x_init)&quot;);
+        delta = sub(x, x_init).map(|x| x.powi(2)).iter().sum();
+    }
+    x
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="powells-method"><a class="header" href="#powells-method">Powell's Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{basis, sub};
+
+fn powells_method&lt;const N: usize, F: Fn([f32; N]) -&gt; f32&gt;(
+    f: F,
+    mut x: [f32; N],
+    epsilon: f32,
+) -&gt; [f32; N] {
+    let u: Vec&lt;[f32; N]&gt; = (0..N).map(|i| basis::&lt;N&gt;(i)).collect();
+    let mut delta = f32::INFINITY;
+    while delta &gt; epsilon {
+        let mut x_prime = x;
+        for i in 0..N {
+            x_prime = todo!(&quot;line_search(f, x_prime, u[i])&quot;);
+        }
+        for i in 0..(N - 1) {
+            u[i] = u[i + 1];
+        }
+        u[N] = sub(x_prime, x);
+        x_prime = todo!(&quot;line_search(f, x, u[N])&quot;);
+        delta = sub(x_prime, x).map(|x| x.powi(2)).iter().sum();
+        x = x_prime;
+    }
+    x
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hooke-jeeves-method"><a class="header" href="#hooke-jeeves-method">Hooke Jeeves Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, basis};
+
+fn hooke_jeeves&lt;const N: usize, F: Fn([f32; N]) -&gt; f32&gt;(
+    f: F,
+    mut x: [f32; N],
+    mut alpha: f32,
+    epsilon: f32,
+    gamma: f32,
+) -&gt; [f32; N] {
+    let mut y = f(x);
+
+    while alpha &gt; epsilon {
+        let mut improved = false;
+        let (mut x_best, mut y_best) = (x, y);
+        for i in 0..N {
+            for sgn in [-1., 1.] {
+                let x_prime = add(x, basis::&lt;N&gt;(i).map(|b| b * sgn * alpha));
+                let y_prime = f(x_prime);
+                if y_prime &lt; y_best {
+                    (x_best, y_best, improved) = (x_prime, y_prime, true);
+                }
+            }
+        }
+        (x, y) = (x_best, y_best);
+
+        if !improved {
+            alpha *= gamma;
+        }
+    }
+    x
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generalized-pattern-search"><a class="header" href="#generalized-pattern-search">Generalized Pattern Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::add;
+
+fn generalized_pattern_search&lt;const N: usize, F: Fn([f32; N]) -&gt; f32&gt;(
+    f: F,
+    mut x: [f32; N],
+    mut alpha: f32,
+    mut dirs: Vec&lt;[f32; N]&gt;,
+    epsilon: f32,
+    gamma: f32,
+) -&gt; [f32; N] {
+    let mut y = f(x);
+    while alpha &gt; epsilon {
+        let mut improved = false;
+        for (i, dir) in dirs.iter().enumerate() {
+            let x_prime = add(x, dir.map(|d| d * alpha));
+            let y_prime = f(x_prime);
+            if y_prime &lt; y {
+                (x, y, improved) = (x_prime, y_prime, true);
+                dirs.remove(i);
+                dirs.insert(0, *dir);
+                break;
+            }
+        }
+        if !improved {
+            alpha *= gamma;
+        }
+    }
+    x
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nelder-mead-simplex-method"><a class="header" href="#nelder-mead-simplex-method">Nelder-Mead Simplex Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use crate::{add, sub};
+
+struct NelderMeadConfig {
+    alpha: f32,
+    beta: f32,
+    gamma: f32,
+}
+
+fn nelder_mead&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    mut s: [[f32; N]; N + 1],
+    epsilon: f32,
+    config: NelderMeadConfig,
+) -&gt; [f32; N] {
+    let NelderMeadConfig { alpha, beta, gamma } = config;
+
+    let delta = f32::INFINITY;
+    let mut y_arr = s.map(|s| f(s));
+    while delta &gt; epsilon {
+        let p = argsort(y_arr);
+        (s, y_arr) = (p.map(|i| s[i]), p.map(|i| y_arr[i]));
+        let (xl, yl) = (s[0], y_arr[0]);
+        let (xh, yh) = (s[N], y_arr[N]);
+        let (xs, ys) = (s[N - 1], y_arr[N - 1]);
+        let xm = s[0..N]
+            .iter()
+            .fold([0.; N], |acc, x| acc.zip(*x).map(|(a, x)| a + x))
+            .map(|x| x / N as f32);
+        let xr = add(xm, sub(xm, xh).map(|x| x * alpha));
+        let yr = f(xr);
+
+        if yr &lt; yl {
+            let xe = add(xm, sub(xr, xm).map(|x| x * beta));
+            let ye = f(xe);
+            (s[N], y_arr[N]) = if ye &lt; yr { (xe, ye) } else { (xr, yr) };
+        } else if yr &gt; ys {
+            if yr &lt;= yh {
+                (xh, yh, s[N], y_arr[N]) = (xr, yr, xr, yr);
+            }
+            let xc = add(xm, sub(xh, xm).map(|x| x * gamma));
+            let yc = f(xc);
+            if yc &gt; yh {
+                for i in 1..=N {
+                    s[i] = add(s[i], xl).map(|x| x / 2.);
+                    y_arr[i] = f(s[i]);
+                }
+            } else {
+                (s[N], y_arr[N]) = (xc, yc);
+            }
+        } else {
+            (s[N], y_arr[N]) = (xr, yr);
+        }
+
+        delta = std_dev(&amp;y_arr);
+    }
+
+    s[argmin(&amp;y_arr)]
+}
+
+fn argsort&lt;const N: usize&gt;(arr: [f32; N]) -&gt; [usize; N] {
+    let mut indices = [0; N];
+    for i in 0..N {
+        indices[i] = i;
+    }
+    indices.sort_unstable_by(|a, b| a.partial_cmp(b).unwrap());
+    indices
+}
+
+fn argmin(arr: &amp;[f32]) -&gt; usize {
+    arr.iter()
+        .enumerate()
+        .fold((0, f32::INFINITY), |(mut min_idx, mut min), (i, &amp;a)| {
+            if a &lt; min {
+                (min_idx, min) = (i, a);
+            }
+            (min_idx, min)
+        })
+        .0
+}
+
+fn std_dev(arr: &amp;[f32]) -&gt; f32 {
+    let n = arr.len() as f32;
+    let m = arr.iter().sum::&lt;f32&gt;() / n;
+    let variance = arr.iter().map(|x| (x - m).powi(2)).sum::&lt;f32&gt;() / n;
+    variance.sqrt()
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="divided-rectanges"><a class="header" href="#divided-rectanges">Divided Rectanges</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::{
+    cmp::Ordering,
+    collections::{BinaryHeap, HashMap},
+};
+
+use crate::{add, basis, mul, sub};
+
+#[derive(Clone, Copy)]
+struct Interval&lt;const N: usize&gt; {
+    c: [f32; N],
+    y: f32,
+    depths: [usize; N],
+}
+
+impl&lt;const N: usize&gt; Interval&lt;N&gt; {
+    fn new(c: [f32; N], y: f32, depths: [usize; N]) -&gt; Self {
+        Self { c, y, depths }
+    }
+}
+
+impl&lt;const N: usize&gt; PartialEq for Interval&lt;N&gt; {
+    fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+        self.y == other.y
+    }
+}
+
+impl&lt;const N: usize&gt; Eq for Interval&lt;N&gt; {}
+
+impl&lt;const N: usize&gt; PartialOrd for Interval&lt;N&gt; {
+    fn partial_cmp(&amp;self, other: &amp;Self) -&gt; Option&lt;Ordering&gt; {
+        Some(self.y.partial_cmp(&amp;other.y).unwrap().reverse())
+    }
+}
+
+impl&lt;const N: usize&gt; Ord for Interval&lt;N&gt; {
+    fn cmp(&amp;self, other: &amp;Self) -&gt; Ordering {
+        self.partial_cmp(other).unwrap()
+    }
+}
+
+type Intervals&lt;const N: usize&gt; = HashMap&lt;usize, BinaryHeap&lt;Interval&lt;N&gt;&gt;&gt;;
+
+fn direct&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    a: [f32; N],
+    b: [f32; N],
+    epsilon: f32,
+    max_iter: usize,
+) -&gt; [f32; N] {
+    let g = reparam(f, a, b);
+    let mut intervals: Intervals&lt;N&gt; = HashMap::new();
+    let c = [0.5; N];
+    let interval = Interval::new(c, g(c), [0; N]);
+    add_interval(&amp;mut intervals, interval);
+    let (mut c_best, mut y_best) = (interval.c, interval.y);
+
+    for k in 0..max_iter {
+        let s = get_opt_intervals(intervals, epsilon, y_best);
+        let mut to_add = Vec::new();
+        for interval in s {
+            to_add.append(&amp;mut divide(g, interval));
+            intervals.remove(&amp;min_depth(&amp;interval));
+        }
+        for interval in to_add {
+            add_interval(&amp;mut intervals, interval);
+            if interval.y &lt; y_best {
+                (c_best, y_best) = (interval.c, interval.y);
+            }
+        }
+    }
+
+    add(mul(c_best, sub(b, a)), a)
+}
+
+fn get_opt_intervals&lt;const N: usize&gt;(
+    intervals: Intervals&lt;N&gt;,
+    epsilon: f32,
+    y_best: f32,
+) -&gt; Vec&lt;Interval&lt;N&gt;&gt; {
+    let max_depth = intervals.keys().max().unwrap();
+    let mut stack = vec![*intervals[max_depth].peek().unwrap()];
+    let mut d = max_depth - 1;
+
+    while d &gt;= 0 {
+        match intervals.get(&amp;d) {
+            Some(pq) if !pq.is_empty() =&gt; {
+                let interval = pq.peek().unwrap();
+                let (x, y) = (0.5 * 3f32.powi(-(min_depth(interval) as i32)), interval.y);
+
+                while !stack.is_empty() {
+                    let interval_1 = stack.last().unwrap();
+                    let x1 = 0.5 * 3f32.powi(-(min_depth(interval) as i32));
+                    let y1 = interval_1.y;
+                    let l1 = (y - y1) / (x - x1);
+                    if y1 - l1 * x1 &gt; y_best || y &lt; y1 {
+                        stack.pop();
+                    } else if stack.len() &gt; 1 {
+                        let interval_2 = stack[stack.len() - 2];
+                        let x2 = 0.5 * 3f32.powi(-(min_depth(&amp;interval_2) as i32));
+                        let y2 = interval_2.y;
+                        let l2 = (y1 - y2) / (x1 - x2);
+                        if l2 &gt; l1 {
+                            stack.pop();
+                        } else {
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+            _ =&gt; {}
+        }
+        d -= 1;
+    }
+
+    stack
+}
+
+fn divide&lt;const N: usize&gt;(f: impl Fn([f32; N]) -&gt; f32, interval: Interval&lt;N&gt;) -&gt; Vec&lt;Interval&lt;N&gt;&gt; {
+    let (c, d) = (interval.c, min_depth(&amp;interval));
+    let dirs = interval
+        .depths
+        .into_iter()
+        .enumerate()
+        .filter_map(|(i, x)| if x == d { Some(i) } else { None })
+        .collect::&lt;Vec&lt;_&gt;&gt;();
+    let cs = dirs
+        .into_iter()
+        .map(|i| {
+            (
+                add(c, basis::&lt;N&gt;(i).map(|b| 3f32.powi(-(d as i32) - 1) * b)),
+                sub(c, basis::&lt;N&gt;(i).map(|b| 3f32.powi(-(d as i32) - 1) * b)),
+            )
+        })
+        .collect::&lt;Vec&lt;_&gt;&gt;();
+    let vs = cs
+        .into_iter()
+        .map(|(c1, c2)| (f(c1), f(c2)))
+        .collect::&lt;Vec&lt;_&gt;&gt;();
+    let min_vals = vs
+        .into_iter()
+        .map(|(v1, v2)| v1.min(v2))
+        .collect::&lt;Vec&lt;_&gt;&gt;();
+
+    let mut intervals = Vec::new();
+    let mut depths = interval.depths;
+    let mut sort_perm: Vec&lt;_&gt; = (0..min_vals.len()).collect();
+    sort_perm.sort_unstable_by(|&amp;a, &amp;b| min_vals[a].partial_cmp(&amp;min_vals[b]).unwrap());
+    for j in sort_perm {
+        depths[dirs[j]] += 1;
+        let ((c1, c2), (v1, v2)) = (cs[j], vs[j]);
+        intervals.push(Interval::new(c1, v1, depths));
+        intervals.push(Interval::new(c2, v2, depths));
+    }
+    intervals.push(Interval::new(c, interval.y, depths));
+    intervals
+}
+
+fn add_interval&lt;const N: usize&gt;(intervals: &amp;mut Intervals&lt;N&gt;, interval: Interval&lt;N&gt;) {
+    let d = min_depth(&amp;interval);
+    if let Some(queue) = intervals.get_mut(&amp;d) {
+        queue.push(interval);
+    } else {
+        intervals.insert(d, BinaryHeap::from([interval]));
+    }
+}
+
+fn min_depth&lt;const N: usize&gt;(interval: &amp;Interval&lt;N&gt;) -&gt; usize {
+    interval.depths.into_iter().min().unwrap()
+}
+
+fn reparam&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    a: [f32; N],
+    b: [f32; N],
+) -&gt; impl Fn([f32; N]) -&gt; f32 {
+    let delta = sub(b, a);
+    move |x: [f32; N]| f(add(mul(x, delta), a))
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="noisy-gradient-descent"><a class="header" href="#noisy-gradient-descent">Noisy Gradient Descent</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::Rng;
+use rand_distr::StandardNormal;
+
+use crate::{add, gradient_descent::GradientDescent};
+
+struct NoisyDescent&lt;const N: usize, G: Fn([f32; N]) -&gt; [f32; N], S: Fn(usize) -&gt; f32&gt; {
+    descent: GradientDescent&lt;N, G&gt;,
+    sigma: S,
+    k: usize,
+}
+
+impl&lt;const N: usize, G: Fn([f32; N]) -&gt; [f32; N], S: Fn(usize) -&gt; f32&gt; NoisyDescent&lt;N, G, S&gt; {
+    fn new(x: [f32; N], grad_f: G, alpha: f32, sigma: S) -&gt; Self {
+        Self {
+            descent: GradientDescent::new(x, grad_f, alpha),
+            sigma,
+            k: 1,
+        }
+    }
+}
+
+impl&lt;const N: usize, G: Fn([f32; N]) -&gt; [f32; N], S: Fn(usize) -&gt; f32&gt; Iterator
+    for NoisyDescent&lt;N, G, S&gt;
+{
+    type Item = [f32; N];
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        // The iterator will never end, so unwrap is fine
+        let mut x = self.descent.next().unwrap();
+        let sigma = (self.sigma)(self.k);
+        x = add(x, randn::&lt;N&gt;().map(|r| r * sigma));
+        self.k += 1;
+        // Since x has changed, we update the x stored in GradientDescent
+        self.descent.set_x(x);
+        Some(x)
+    }
+}
+
+fn randn&lt;const N: usize&gt;() -&gt; [f32; N] {
+    let mut rng = rand::thread_rng();
+    [0.; N].map(|_| rng.sample(StandardNormal))
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mesh-adaptive-direct-search"><a class="header" href="#mesh-adaptive-direct-search">Mesh Adaptive Direct Search</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::{seq::SliceRandom, thread_rng};
+use rand_distr::uniform::SampleRange;
+
+use crate::add;
+
+fn mesh_adaptive_search&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    mut x: [f32; N],
+    epsilon: f32,
+) -&gt; [f32; N]
+where
+    [(); N + 1]:,
+{
+    let mut alpha = 1.;
+    let mut y = f(x);
+
+    while alpha &gt; epsilon {
+        let mut improved = false;
+        for (i, d) in rand_positive_spanning_set::&lt;N&gt;(alpha)
+            .into_iter()
+            .enumerate()
+        {
+            let mut x_prime = add(x, d.map(|d| d * alpha));
+            let mut y_prime = f(x_prime);
+            if y_prime &lt; y {
+                (x, y, improved) = (x_prime, y_prime, true);
+                x_prime = add(x, d.map(|d| 3. * alpha * d));
+                y_prime = f(x_prime);
+                if y_prime &lt; y {
+                    (x, y) = (x_prime, y_prime);
+                }
+                break;
+            }
+        }
+        alpha = if improved {
+            1f32.min(4. * alpha)
+        } else {
+            alpha / 4.
+        };
+    }
+
+    x
+}
+
+fn rand_positive_spanning_set&lt;const N: usize&gt;(alpha: f32) -&gt; [[f32; N]; N + 1] {
+    let mut rng = thread_rng();
+
+    let delta = (1. / alpha.sqrt()).round() as i32;
+
+    let mut upper = [[0.; N + 1]; N];
+    for i in 0..N {
+        for j in i..N {
+            upper[i][j] = if i == j {
+                delta * [1, -1].choose(&amp;mut rng).unwrap()
+            } else {
+                (-delta + 1..delta - 1).sample_single(&amp;mut rng)
+            } as f32;
+            upper[i][N] -= upper[i][j];
+        }
+    }
+
+    let mut out = [[0.; N]; N + 1];
+    let mut row_perm = (0..N).collect::&lt;Vec&lt;_&gt;&gt;();
+    row_perm.shuffle(&amp;mut rng);
+    let mut col_perm = (0..N).collect::&lt;Vec&lt;_&gt;&gt;();
+    col_perm.shuffle(&amp;mut rng);
+    for (i, col) in col_perm.into_iter().enumerate() {
+        for (j, row) in row_perm.into_iter().enumerate() {
+            out[i][j] = upper[row][col];
+        }
+    }
+
+    out
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="simulated-annealing"><a class="header" href="#simulated-annealing">Simulated Annealing</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::{thread_rng, Rng};
+
+use crate::add;
+
+fn simulated_annealing&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    mut x: [f32; N],
+    dist: impl Fn() -&gt; [f32; N],
+    t: impl Fn(usize) -&gt; f32,
+    max_iter: usize,
+) -&gt; [f32; N] {
+    let mut rng = thread_rng();
+    let mut y = f(x);
+    let (mut x_best, mut y_best) = (x, y);
+    for k in 0..max_iter {
+        let x_prime = add(x, dist());
+        let y_prime = f(x_prime);
+        let delta_y = y_prime - y;
+        if delta_y &lt;= 0. || rng.gen::&lt;f32&gt;() &lt; (-delta_y / t(k)).exp() {
+            (x, y) = (x_prime, y_prime);
+        }
+        if y_prime &lt; y_best {
+            (x_best, y_best) = (x_prime, y_prime);
+        }
+    }
+    x_best
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adaptive-simulated-annealing"><a class="header" href="#adaptive-simulated-annealing">Adaptive Simulated Annealing</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::{thread_rng, Rng};
+use rand_distr::{Distribution, Uniform};
+
+use crate::{add, basis};
+
+struct Config&lt;const N: usize&gt; {
+    ns: usize,
+    ne: usize,
+    nt: usize,
+    gamma: f32,
+    c: [f32; N],
+}
+
+impl&lt;const N: usize&gt; Config&lt;N&gt; {
+    fn new() -&gt; Self {
+        Self {
+            ns: 20,
+            ne: 4,
+            nt: 100.max(5 * N),
+            gamma: 0.85,
+            c: [2.; N],
+        }
+    }
+}
+
+fn adaptive_simulated_annealing&lt;const N: usize&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    x: [f32; N],
+    v: [f32; N],
+    t: f32,
+    epsilon: f32,
+    config: Config&lt;N&gt;,
+) -&gt; [f32; N] {
+    let Config {
+        ns,
+        ne,
+        nt,
+        gamma,
+        c,
+    } = config;
+
+    let y = f(x);
+    let (mut x_best, mut y_best) = (x, y);
+    let y_arr: Vec&lt;f32&gt; = vec![];
+    let (mut rng, uniform) = (thread_rng(), Uniform::from(-1f32..1f32));
+    let (a, count_cycles, count_resets) = ([0.; N], 0, 0);
+
+    loop {
+        for i in 0..N {
+            let x_prime = add(
+                x,
+                basis::&lt;N&gt;(i).map(|b| b * uniform.sample(&amp;mut rng) * v[i]),
+            );
+            let y_prime = f(x_prime);
+            let delta_y = y_prime - y;
+            if delta_y &lt; 0. || rng.gen::&lt;f32&gt;() &lt; (-delta_y / t).exp() {
+                (x, y) = (x_prime, y_prime);
+                a[i] += 1.;
+                if y_prime &lt; y_best {
+                    (x_best, y_best) = (x_prime, y_prime);
+                }
+            }
+        }
+
+        count_cycles += 1;
+        if count_cycles &gt;= ns {
+            continue;
+        }
+
+        count_cycles = 0;
+        corona_update(&amp;mut v, a, c, ns);
+        a = [0.; N];
+        count_resets += 1;
+        if count_resets &gt;= nt {
+            continue;
+        }
+
+        t *= gamma;
+        count_resets = 0;
+        y_arr.push(y);
+
+        if !(y_arr.len() &gt; ne
+            &amp;&amp; y_arr.last().unwrap() - y_best &lt;= epsilon
+            &amp;&amp; (0..ne)
+                .into_iter()
+                .all(|u| (y_arr.last().unwrap() - y_arr[y_arr.len() - 2 - u]).abs() &lt;= epsilon))
+        {
+            (x, y) = (x_best, y_best);
+        } else {
+            break;
+        }
+    }
+    x_best
+}
+
+fn corona_update&lt;const N: usize&gt;(v: &amp;mut [f32; N], a: [f32; N], c: [f32; N], ns: usize) {
+    for i in 0..v.len() {
+        let (ai, ci) = (a[i], c[i]);
+        if ai &gt; 0.6 * ns as f32 {
+            v[i] *= 1. + ci * (ai / ns as f32 - 0.6) / 0.4;
+        } else if ai &lt; 0.4 * ns as f32 {
+            v[i] /= 1. + ci * (0.4 - ai / ns as f32) / 0.4;
+        }
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cross-entropy-method"><a class="header" href="#cross-entropy-method">Cross-Entropy Method</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::thread_rng;
+use rand_distr::Distribution;
+
+struct Config {
+    max_iter: usize,
+    m: usize,
+    m_elite: usize,
+}
+
+fn cross_entropy_method&lt;const N: usize, D: Distribution&lt;[f32; N]&gt;&gt;(
+    f: impl Fn([f32; N]) -&gt; f32,
+    dist_sample: D,
+    fit_dist: impl Fn(&amp;[[f32; N]]) -&gt; D,
+    config: Config,
+) -&gt; D {
+    let mut rng = thread_rng();
+    let Config {
+        max_iter,
+        m,
+        m_elite,
+    } = config;
+
+    for k in 0..max_iter {
+        let _: [f32; N] = dist_sample.sample(&amp;mut rng);
+        let samples: Vec&lt;[f32; N]&gt; = dist_sample.sample_iter(&amp;mut rng).take(m).collect();
+        samples.sort_by(|a, b| f(*a).partial_cmp(&amp;f(*b)).unwrap());
+        dist_sample = fit_dist(&amp;samples[..m_elite]);
+    }
+
+    dist_sample
+}
+<span class="boring">}</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
